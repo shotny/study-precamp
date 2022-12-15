@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>final::join</title>
+    <link href="./final.css" rel="stylesheet">
+    <script src="./final.js"></script>
+</head>
+<body>
+    <div class="joinform">
+        <div class="title"> 코드캠프 회원가입 </div>
+        
+        <div class="contents">
+            <div class="input">
+                <input id="email" class="infoBox" placeholder=" 이메일을 입력해주세요">
+                <input id="email" class="infoBox" placeholder=" 이름을 입력해주세요">
+                <input id="email" class="infoBox" placeholder=" 비밀번호를 입력해주세요">
+                <input id="email" class="infoBox" placeholder=" 비밀번호를 다시 입력해주세요">   
+            </div>
+            
+            <div class="phone">
+                <input id="ph1" class="phBox" oninput="changeFocus1()">﹣
+                <input id="ph2" class="phBox" oninput="changeFocus2()">﹣
+                <input id="ph3" class="phBox" oninput="sendOn()">
+            </div>
+            
+            <div class="validation">
+                <div class="send">
+                    <div id="valNum" class="valText">000000</div>
+                    <button id="sendButton" class="sendButton" onclick="getToken()" disabled>인증번호 전송</button>
+                </div>
+                <div class="finish">
+                    <div id="time" class="valText">3:00</div>
+                    <button id="finishButton" class="finishButton">인증 완료</button>
+                </div>
+            </div>
+
+            <div>
+                <select class="location">
+                    <option disabled="true" selected="true"> 지역을 선택하세요</option>
+                    <option>서울</option>
+                    <option>경기</option>
+                    <option>인천</option>
+                </select>
+            </div>
+
+            <div class="gender">
+                <input name="gender" type="radio"> 여성
+                <input name="gender" type="radio"> 남성
+            </div>
+
+            <div class="dividedLine"></div>
+
+            <button class="join" id="join" disabled="true" onclick="join()">가입하기</button>
+       
+        </div>
+
+    </div>
+</body>
+</html>
