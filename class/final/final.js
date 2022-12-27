@@ -25,19 +25,56 @@ const sendOn = () => {
     let ph3 = document.getElementById("ph3").value
     if(ph1.length ===3 && ph2.length ===4 & ph3.length === 4){
         document.getElementById("sendButton").removeAttribute("disabled")
-        document.getElementById("sendButton").style = "background-color: #FFFFFF; color: #0068FF; cursor: pointer;"
+        document.getElementById("sendButton").style = "border: 1px solid #0068FF; background-color: #FFFFFF; color: #0068FF; cursor: pointer;"
+    }
+}
+
+// 인증 로직
+let authStarted = false
+let auth = () =>{
+    if(authStarted === false){
+        authStarted = true
+
+        // 인증확인 버튼 활성화
+        document.getElementById("finishButton").disabled = false
+        document.getElementById("finishButton").style.backgroundColor = "#0068FF";
+        
+        // 타이머 띄우기
+        let time = 180
+        let timer
+        timer = setInterval(function(){
+            if(time >= 0){
+                let min = Math.floor(time/60)
+                let sec = String(time % 60).padStart(2, "0")
+                document.getElementById("timer").innerText = min + ":" + sec
+                time = time-1
+            } else {
+                // 3분 내로 버튼 안 누르면 인증확인 버튼 비활성화  & 토큰 정보 "000000", 시간"3:00"
+                document.getElementById("finishButton").disabled = true
+                document.getElementById("finishButton").style = "color: #ffffff; border: 1px solid #D2D2D2;"
+                document.getElementById("valNum").innerText = "000000"
+                document.getElementById("timer").innerText = "3:00"
+                authStarted = false
+                clearInterval(timer)
+            }
+        }, 1000)
+
+        if(document.getElementById("finishButton").onclick && time >= 0) {
+            //3분 이내 인증확인 -> "인증이 완료되었습니다" 알림
+            alert('인증이 완료되었습니다.')
+            clearInterval(timer)
+            document.getElementById("finishButton").disabled = true
+            document.getElementById("finishButton").innerText = "인증 완료"
+
+        }
+        getToken();
+    } else {
+        // 작동중일 때
     }
 }
 
 // 토큰정보 생성
 const getToken = () =>{
-    
+    const token = String(Math.floor(Math.random() * 1000000)).padStart(6, "0")
+    document.getElementById("valNum").innerText = token
 }
-
-// 타이머 띄우기
-
-// 인증확인 버튼 활성화
-
-//3분 이내 인증확인 -> "인증이 완료되었습니다" 알림
-
-// 3분 도안 버튼 안 누르면 인증확인 버튼 비활성화 +회색으로 & 토큰 정보 "000000", 시간"3:00"

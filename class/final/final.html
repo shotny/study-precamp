@@ -26,11 +26,11 @@
             <div class="validation">
                 <div class="send">
                     <div id="valNum" class="valText">000000</div>
-                    <button id="sendButton" class="sendButton" onclick="getToken()" disabled>인증번호 전송</button>
+                    <button id="sendButton" class="sendButton" onclick="auth()" disabled>인증번호 전송</button>
                 </div>
                 <div class="finish">
-                    <div id="time" class="valText">3:00</div>
-                    <button id="finishButton" class="finishButton">인증 완료</button>
+                    <div id="timer" class="valText">3:00</div>
+                    <button id="finishButton" class="finishButton" onclick="authFinish()">인증 확인</button>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
 
             <div class="dividedLine"></div>
 
-            <button class="join" id="join" disabled="true" onclick="join()">가입하기</button>
+            <button class="joinButton" id="joinButton" disabled="true" onclick="join()">가입하기</button>
        
         </div>
 

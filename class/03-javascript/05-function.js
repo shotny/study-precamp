@@ -6,7 +6,7 @@ let auth = () => {
         isStarted = true
         document.getElementById("finish").disabled = false
        
-        let time = 5
+        let time = 180
         let timer
 
         timer = setInterval(function(){

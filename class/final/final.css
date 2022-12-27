@@ -160,16 +160,16 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
-.join {
+.joinButton {
     width: 380px;
     height: 75px;
     background: #FFFFFF;
-    border: 1px solid #0068FF;
+    border: 1px solid #D2D2D2;
     border-radius: 10px;
 
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
     text-align: center;
-    color: #0068FF;
+    /* color: #0068FF; */
 }
